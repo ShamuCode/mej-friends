@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Duo of enemies</title>
+    <link rel="icon" type="image/x-icon" href="https://static.thenounproject.com/png/1561334-200.png">
+</head>
+<body>
+    <div class="text">
+        <div class="menu">
+            <a href="../index.html">🏠 Home</a>
+        </div>
+    <h1>Calcul of Claps</h1>
+    <label>
+        Number of persons at the party:
+        <input type="range" id="nbPersons" min="1" max="50" value="10" oninput="updateValues()">
+        <span id="nbPersonsValue">10</span>
+    </label>
+
+    <label>
+        Number of duos who don't like each other:
+        <input type="range" id="nbHaters" min="0" max="50" value="3" oninput="updateValues()">
+        <span id="nbHatersValue">3</span>
+    </label>
+
+
+        <div class="output">
+            <strong>Nombre de clapements :</strong>
+            <span id="clapements">0</span>
+        </div>
+    </div>
+
+    <script>
+        const nbPersonsInput = document.getElementById('nbPersons');
+        const nbHatersInput = 
+document.getElementById('nbHaters');
+        const clapementsOutput = document.getElementById('clapements');
+
+        let hatersData = [];
+
+        // Update displayed values and inputs dynamically
+        function updateValues() {
+            document.getElementById('nbPersonsValue').textContent = nbPersonsInput.value;
+            document.getElementById('nbHatersValue').textContent = nbHatersInput.value;
+            calculateClapements();
+        }
+
+        
+
+        function calculateClapements() {
+            const x = parseInt(nbPersonsInput.value);
+            const y = parseInt(nbHatersInput.value);
+            const totalClapements = Math.floor((x * x - x) / 2 - y);
+
+            clapementsOutput.textContent = totalClapements;
+        }
+
+        // Initialize inputs and calculations
+        updateValues();
+    </script>
+</body>
+</html>

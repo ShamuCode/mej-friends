@@ -1,0 +1,100 @@
+<!--Si il y a plusieurs claps-->
+<!--Interface-->
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Enemies</title>
+    <link rel="icon" type="image/x-icon" href="https://static.thenounproject.com/png/1561334-200.png">
+</head>
+<body>
+    <div class="text">
+        <div class="menu">
+            <a href="../index.html">🏠 Home</a>
+        </div>
+    <h1>Calcul of Claps</h1>
+    <label>
+        Number of persons at the party:
+        <input type="range" id="nbPersons" min="1" max="50" value="10" oninput="updateValues()">
+        <span id="nbPersonsValue">10</span>
+    </label>
+
+    <label>
+        Number of persons who hate others:
+        <input type="range" id="nbHaters" min="0" max="10" value="3" oninput="updateValues()">
+        <span id="nbHatersValue">3</span>
+    </label>
+
+    <div id="hatersInputs"></div>
+
+    <div class="output">
+        <strong>Number of claps :</strong>
+        <span id="clapements">0</span>
+    </div>
+    </div>
+
+    <script>
+        const nbPersonsInput = document.getElementById('nbPersons');
+        const nbHatersInput = document.getElementById('nbHaters');
+        const hatersContainer = document.getElementById('hatersInputs');
+        const clapementsOutput = document.getElementById('clapements');
+
+        let hatersData = [];
+
+        // Update displayed values and inputs dynamically
+        function updateValues() {
+            document.getElementById('nbPersonsValue').textContent = nbPersonsInput.value;
+            document.getElementById('nbHatersValue').textContent = nbHatersInput.value;
+
+            updateHatersInputs();
+            calculateClapements();
+        }
+
+        function updateHatersInputs() {
+            const nbHaters = parseInt(nbHatersInput.value);
+            hatersContainer.innerHTML = ''; // Clear existing inputs
+            hatersData = Array(nbHaters).fill(0); // Reset data
+
+            for (let i = 0; i < nbHaters; i++) {
+                const label = document.createElement('label');
+                label.textContent = `Person ${i + 1} - Number of people hated : `;
+                const input = document.createElement('input');
+                input.type = 'range';
+                input.min = '0';
+                input.max = nbPersonsInput.value - 1;
+                input.value = '0';
+                input.oninput = function () {
+                    hatersData[i] = parseInt(input.value);
+                    calculateClapements();
+                };
+                const valueDisplay = document.createElement('span');
+                valueDisplay.textContent = input.value;
+
+                input.oninput = function () {
+                    valueDisplay.textContent = input.value;
+                    hatersData[i] = parseInt(input.value);
+                    calculateClapements();
+                };
+
+                label.appendChild(input);
+                label.appendChild(valueDisplay);
+                hatersContainer.appendChild(label);
+            }
+        }
+
+        function calculateClapements() {
+            const x = parseInt(nbPersonsInput.value);
+            const y = hatersData.reduce((a, b) => a + b, 0);
+            const totalClapements = Math.floor((x * x - x) / 2 - y);
+
+            clapementsOutput.textContent = totalClapements;
+        }
+
+        // Initialize inputs and calculations
+        updateValues();
+    </script>
+</body>
+</html>

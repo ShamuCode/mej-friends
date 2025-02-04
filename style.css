@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif; 
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background-image: url('./img/mej-logo.gif');
+  /*background-size: cover;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.text{
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: black;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+label {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.output {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #0055ff;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative; /* Allow positioning the image */
+}
+
+/* Link to Montserrat font from Google Fonts */

@@ -1,0 +1,59 @@
+<!--Created by ShamuLC (ShamuCode)-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Claps</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/x-icon" href="https://static.thenounproject.com/png/1561334-200.png">
+</head>
+<body>
+    <div class="text">
+        <div class="menu">
+            <a href="../index.html">🏠 Home</a>
+        </div>
+        <h1>Two Claps</h1>
+        
+        <label>
+            Number of persons at the party:
+            <input type="range" id="nbPersons" min="1" max="50" value="10" oninput="updateValues()">
+            <span id="nbPersonsValue">10</span>
+        </label>
+
+        <label>
+            Multiplication factor:
+            <input type="range" id="multiplier" min="1" max="5" value="2" oninput="updateValues()">
+            <span id="multiplierValue">2</span>
+        </label>
+
+        <div class="output">
+            <strong>Number of claps:</strong>
+            <span id="clapements">0</span>
+        </div>
+    </div>
+
+    <script>
+        const nbPersonsInput = document.getElementById('nbPersons');
+        const multiplierInput = document.getElementById('multiplier');
+        const clapementsOutput = document.getElementById('clapements');
+
+        function updateValues() {
+            document.getElementById('nbPersonsValue').textContent = nbPersonsInput.value;
+            document.getElementById('multiplierValue').textContent = multiplierInput.value;
+            
+            calculateClapements();
+        }
+
+        function calculateClapements() {
+            const x = parseInt(nbPersonsInput.value);
+            const multiplier = parseInt(multiplierInput.value);
+            const totalClapements = Math.floor(((x * x - x) / 2) * multiplier);
+
+            clapementsOutput.textContent = totalClapements;
+        }
+
+        updateValues();
+    </script>
+</body>
+</html>

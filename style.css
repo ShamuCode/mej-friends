@@ -1,3 +1,5 @@
+/*Created by ShamuLC (ShamuCode)*/
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
@@ -6,7 +8,6 @@ body {
   padding: 20px;
   text-align: center;
   background-image: url('./img/mej-logo.gif');
-  /*background-size: cover;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +44,23 @@ label {
   background-color: white;
   padding: 10px;
   border-radius: 10px;
-  position: relative; /* Allow positioning the image */
+  position: relative; 
 }
 
-/* Link to Montserrat font from Google Fonts */
+.author {
+  font-size: 0.9em;
+  color: gray;
+}
+
+.author a {
+  color: blue;
+  text-decoration: none;
+  font-size: 0.9em;
+  color: gray;
+}
+
+.author a:hover {
+  text-decoration: underline;
+  font-size: 0.9em;
+  color: gray;
+}

@@ -1,3 +1,4 @@
+<!--Created by ShamuLC (ShamuCode)-->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,7 +13,7 @@
         <div class="menu">
             <a href="../index.html">🏠 Home</a>
         </div>
-    <h1>Calcul of Claps</h1>
+    <h1>Duo of enemies</h1>
     <label>
         Number of persons at the party:
         <input type="range" id="nbPersons" min="1" max="50" value="10" oninput="updateValues()">
@@ -40,7 +41,6 @@ document.getElementById('nbHaters');
 
         let hatersData = [];
 
-        // Update displayed values and inputs dynamically
         function updateValues() {
             document.getElementById('nbPersonsValue').textContent = nbPersonsInput.value;
             document.getElementById('nbHatersValue').textContent = nbHatersInput.value;
@@ -57,7 +57,6 @@ document.getElementById('nbHaters');
             clapementsOutput.textContent = totalClapements;
         }
 
-        // Initialize inputs and calculations
         updateValues();
     </script>
 </body>

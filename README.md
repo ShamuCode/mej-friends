@@ -126,7 +126,7 @@ where `x` is the number of people at the party and `a` is the number of claps ea
 ```python
 x = int(input("Number of persons at the party: "))
 a = int(input("Number of claps for each person: "))
-result = int(((x*x-x)/2)*a)
+result = int(((x*(x-1))/2)*a)
 print("Number of claps: ", result)
 ```
 

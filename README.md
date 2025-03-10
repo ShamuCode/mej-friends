@@ -24,7 +24,7 @@ where `x` is the number of people at the party. This formula calculates the numb
 **Python Code Used**:
 ```python
 x = int(input("Number of persons at the party: "))
-result = int((x*x-x)/2)
+result = int((x*(x-1))/2)
 print("Number of claps: ", result)
 ```
 | x | Number of claps |
@@ -54,7 +54,7 @@ $$
 ```python
 x = int(input("Number of people at the party: "))
 y = int(input("Number of hated pairs (grouped in pairs of 2): "))
-z = int((x*x-x)/2 - y)
+z = int((x*(x-1))/2 - y)
 print("Number of claps: ", z)
 ```
 | x | y |  Number of claps |

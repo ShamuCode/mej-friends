@@ -1,5 +1,4 @@
-<!--Si il y a plusieurs claps-->
-<!--Interface-->
+<!--Created by ShamuLC (ShamuCode)-->
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -15,7 +14,7 @@
         <div class="menu">
             <a href="../index.html">🏠 Home</a>
         </div>
-    <h1>Calcul of Claps</h1>
+    <h1>Enemies</h1>
     <label>
         Number of persons at the party:
         <input type="range" id="nbPersons" min="1" max="50" value="10" oninput="updateValues()">
@@ -44,7 +43,6 @@
 
         let hatersData = [];
 
-        // Update displayed values and inputs dynamically
         function updateValues() {
             document.getElementById('nbPersonsValue').textContent = nbPersonsInput.value;
             document.getElementById('nbHatersValue').textContent = nbHatersInput.value;
@@ -55,12 +53,12 @@
 
         function updateHatersInputs() {
             const nbHaters = parseInt(nbHatersInput.value);
-            hatersContainer.innerHTML = ''; // Clear existing inputs
-            hatersData = Array(nbHaters).fill(0); // Reset data
+            hatersContainer.innerHTML = '';
+            hatersData = Array(nbHaters).fill(0);
 
             for (let i = 0; i < nbHaters; i++) {
                 const label = document.createElement('label');
-                label.textContent = `Person ${i + 1} - Number of people hated : `;
+                label.textContent = `Person ${i + 1} - Number of people hated: `;
                 const input = document.createElement('input');
                 input.type = 'range';
                 input.min = '0';
@@ -93,7 +91,6 @@
             clapementsOutput.textContent = totalClapements;
         }
 
-        // Initialize inputs and calculations
         updateValues();
     </script>
 </body>
